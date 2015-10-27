@@ -85,13 +85,13 @@ class jtt_tpl_list extends JoomlaTuneTemplate
 		$btnRefresh = '';
 		
 		if ($this->getVar('comments-refresh', 1) == 1) {
-			$btnRefresh = '<a class="refresh" href="#" title="'.JText::_('BUTTON_REFRESH').'" onclick="jcomments.showPage('.$object_id.',\''. $object_group . '\',0);return false;">&nbsp;</a>';
+			$btnRefresh = '<a class="glyphicon glyphicon-refresh icon-refresh refresh" href="#" title="'.JText::_('BUTTON_REFRESH').'" onclick="jcomments.showPage('.$object_id.',\''. $object_group . '\',0);return false;">&nbsp;</a>';
 		}
 
 		if ($this->getVar('comments-rss') == 1) {
 			$link = $this->getVar('rssurl');
 			if (!empty($link)) {
-				$btnRSS = '<a class="rss" href="'.$link.'" title="'.JText::_('BUTTON_RSS').'" target="_blank">&nbsp;</a>';
+				$btnRSS = '<a class="glyphicon glyphicon-rss icon-rss rss" href="'.$link.'" title="'.JText::_('BUTTON_RSS').'" target="_blank">&nbsp;</a>';
 			}
 		}
 ?>

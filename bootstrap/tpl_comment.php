@@ -30,7 +30,7 @@ class jtt_tpl_comment extends JoomlaTuneTemplate
 			} else {
 				// return all comment item
 ?>
-<div class="rbox">
+<div class="panel-body rbox">
 <?php
 
 				$comment_number = $this->getVar('comment-number', 1);
@@ -40,16 +40,17 @@ class jtt_tpl_comment extends JoomlaTuneTemplate
 
 				if ($this->getVar('avatar') == 1) {
 ?>
-<div class="comment-avatar"><?php echo $comment->avatar; ?></div>
+<div class="media-left comment-avatar"><?php echo $comment->avatar; ?></div>
 <?php
 				}
 ?>
-<div class="comment-box<?php echo $commentBoxIndentStyle; ?>">
+<div class="media-body comment-box<?php echo $commentBoxIndentStyle; ?>">
 <?php
 				if ($this->getVar('comment-show-vote', 0) == 1) {
 					$this->getCommentVote( $comment );
 				}
 ?>
+<h4 class="media-heading">
 <a class="comment-anchor" href="<?php echo $thisurl; ?>#comment-<?php echo $comment->id; ?>" id="comment-<?php echo $comment->id; ?>">#<?php echo $comment_number; ?></a>
 <?php
 				if (($this->getVar('comment-show-title') > 0) && ($comment->title != '')) {
@@ -74,14 +75,15 @@ class jtt_tpl_comment extends JoomlaTuneTemplate
 <?php
 				}
 ?>
-<span class="comment-date"><?php echo JCommentsText::formatDate($comment->date, JText::_('DATETIME_FORMAT')); ?></span>
+<span class="comment-date"><i class="glyphicon glyphicon-calendar icon icon-calendar"></i> <?php echo JCommentsText::formatDate($comment->date, JText::_('DATETIME_FORMAT')); ?></span>
+</h4>
 <div class="comment-body" id="comment-body-<?php echo $comment->id; ?>"><?php echo $comment->comment; ?></div>
 <?php
 				if (($this->getVar('button-reply') == 1)
 				|| ($this->getVar('button-quote') == 1)
 				|| ($this->getVar('button-report') == 1)) {
 ?>
-<span class="comments-buttons">
+<span class="pull-right comments-buttons">
 <?php
 					if ($this->getVar('button-reply') == 1) {
 ?>
@@ -113,7 +115,7 @@ class jtt_tpl_comment extends JoomlaTuneTemplate
 <?php
 				}
 ?>
-</div><div class="clear"></div>
+</div>
 <?php
 				// show frontend moderation panel
 				$this->getCommentAdministratorPanel( $comment );
@@ -185,12 +187,12 @@ class jtt_tpl_comment extends JoomlaTuneTemplate
 			return;
 		}
 ?>
-<span class="comments-vote">
+<span class="comments-vote pull-right">
 	<span id="comment-vote-holder-<?php echo $comment->id; ?>">
 <?php
 		if ($this->getVar('button-vote', 0) == 1) {
 ?>
-<a href="#" class="vote-good" title="<?php echo JText::_('BUTTON_VOTE_GOOD'); ?>" onclick="jcomments.voteComment(<?php echo $comment->id;?>, 1);return false;"></a><a href="#" class="vote-poor" title="<?php echo JText::_('BUTTON_VOTE_BAD'); ?>" onclick="jcomments.voteComment(<?php echo $comment->id;?>, -1);return false;"></a>
+<a href="#" class="glyphicon glyphicon-thumbs-up icon icon-thumbs-up vote-good" title="<?php echo JText::_('BUTTON_VOTE_GOOD'); ?>" onclick="jcomments.voteComment(<?php echo $comment->id;?>, 1);return false;"></a><a href="#" class="glyphicon glyphicon-thumbs-down icon icon-thumbs-down vote-poor" title="<?php echo JText::_('BUTTON_VOTE_BAD'); ?>" onclick="jcomments.voteComment(<?php echo $comment->id;?>, -1);return false;"></a>
 <?php
 		}
 		echo $this->getCommentVoteValue( $comment );

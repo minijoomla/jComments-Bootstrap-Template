@@ -24,7 +24,7 @@ class jtt_tpl_tree extends JoomlaTuneTemplate
 		if (isset($comments)) {
 			$this->getHeader();
 ?>
-<div class="comments-list" id="comments-list-0">
+<ul class="media-list panel-body comments-list" id="comments-list-0">
 <?php
 			$i = 0;
 			
@@ -34,8 +34,8 @@ class jtt_tpl_tree extends JoomlaTuneTemplate
 			foreach($comments as $id => $comment) {
 				if ($currentLevel < $comment->level) {
 ?>
-	</div>
-	<div class="comments-list" id="comments-list-<?php echo $comment->parent; ?>">
+	
+	<ul class="media-list comments-list" id="comments-list-<?php echo $comment->parent; ?>">
 <?php				
 				} else {
 					$j = 0;
@@ -48,19 +48,20 @@ class jtt_tpl_tree extends JoomlaTuneTemplate
 
 					while($j > 0) {
 ?>
-	</div>
+	</ul>
+  </li>
 <?php
 						$j--;
 					}
 				}
 ?>
-		<div class="<?php echo ($i%2 ? 'odd' : 'even'); ?>" id="comment-item-<?php echo $id; ?>">
+		<li class="media panel panel-default <?php echo ($i%2 ? 'odd' : 'even'); ?>" id="comment-item-<?php echo $id; ?>">
 <?php
 				echo $comment->html;
 
 				if ($comment->children == 0) {
 ?>
-		</div>
+		</li>
 <?php
 				}
 				
@@ -70,7 +71,7 @@ class jtt_tpl_tree extends JoomlaTuneTemplate
 
 				while($j > 0) {
 ?>
-	</div>
+	</li>
 <?php					$j--;
 				}
 
@@ -78,8 +79,8 @@ class jtt_tpl_tree extends JoomlaTuneTemplate
 				$currentLevel = $comment->level;
 			}
 ?>
-</div>
-<div id="comments-list-footer"><?php echo $this->getFooter();?></div>
+</ul>
+<div id="comments-list-footer" class="panel-footer"><ul class="list-unstyled"><?php echo $this->getFooter();?></ul></div>
 <?php
 		} else {
 			// display single comment item (works when new comment is added)
@@ -114,17 +115,17 @@ class jtt_tpl_tree extends JoomlaTuneTemplate
 		$btnRefresh = '';
 		
 		if ($this->getVar('comments-refresh', 1) == 1) {
-			$btnRefresh = '<a class="refresh" href="#" title="'.JText::_('BUTTON_REFRESH').'" onclick="jcomments.showPage('.$object_id.',\''. $object_group . '\',0);return false;">&nbsp;</a>';
+			$btnRefresh = '<a class="glyphicon glyphicon-refresh icon icon-refresh refresh" href="#" title="'.JText::_('BUTTON_REFRESH').'" onclick="jcomments.showPage('.$object_id.',\''. $object_group . '\',0);return false;">&nbsp;</a>';
 		}
 
 		if ($this->getVar('comments-rss') == 1) {
 			$link = $this->getVar('rssurl');
 			if (!empty($link)) {
-				$btnRSS = '<a class="rss" href="'.$link.'" title="'.JText::_('BUTTON_RSS').'" target="_blank">&nbsp;</a>';
+				$btnRSS = '<a class="glyphicon glyphicon-rss icon icon-rss rss" href="'.$link.'" title="'.JText::_('BUTTON_RSS').'" target="_blank">&nbsp;</a>';
 			}
 		}
 ?>
-<h4><?php echo JText::_('COMMENTS_LIST_HEADER'); ?> <?php echo $btnRSS; ?><?php echo $btnRefresh; ?></h4>
+<div class="panel-heading"><?php echo JText::_('COMMENTS_LIST_HEADER'); ?> <?php echo $btnRSS; ?><?php echo $btnRefresh; ?></div>
 <?php
 	}
 
@@ -143,13 +144,13 @@ class jtt_tpl_tree extends JoomlaTuneTemplate
 		$lines = array();
 
 		if ($this->getVar('comments-refresh', 1) == 1) {
-			$lines[] = '<a class="refresh" href="#" title="'.JText::_('BUTTON_REFRESH').'" onclick="jcomments.showPage('.$object_id.',\''. $object_group . '\',0);return false;">'.JText::_('BUTTON_REFRESH').'</a>';
+			$lines[] = '<li><a class="refresh" href="#" title="'.JText::_('BUTTON_REFRESH').'" onclick="jcomments.showPage('.$object_id.',\''. $object_group . '\',0);return false;"><span class="glyphicon glyphicon-refresh icon icon-refresh"></span> '.JText::_('BUTTON_REFRESH').'</a></li>';
 		}
 
 		if ($this->getVar('comments-rss', 1) == 1) {
 			$link = $this->getVar('rssurl');
 			if (!empty($link)) {
-				$lines[] = '<a class="rss" href="'.$link.'" title="'.JText::_('BUTTON_RSS').'" target="_blank">'.JText::_('BUTTON_RSS').'</a>';
+				$lines[] = '<li><a class="rss" href="'.$link.'" title="'.JText::_('BUTTON_RSS').'" target="_blank"><span class="glyphicon glyphicon-rss icon icon-rss"></span> '.JText::_('BUTTON_RSS').'</a></li>';
 			}
 		}
 
@@ -159,11 +160,11 @@ class jtt_tpl_tree extends JoomlaTuneTemplate
 			$text = $isSubscribed ? JText::_('BUTTON_UNSUBSCRIBE') : JText::_('BUTTON_SUBSCRIBE');
 			$func = $isSubscribed ? 'unsubscribe' : 'subscribe';
 
-			$lines[] = '<a id="comments-subscription" class="subscribe" href="#" title="' . $text . '" onclick="jcomments.' . $func . '('.$object_id.',\''. $object_group . '\');return false;">'. $text .'</a>';
+			$lines[] = '<li><a id="comments-subscription" class="subscribe" href="#" title="' . $text . '" onclick="jcomments.' . $func . '('.$object_id.',\''. $object_group . '\');return false;"><span class="glyphicon glyphicon-envelope icon icon-envelope"></span> '. $text .'</a></li>';
 		}
 
 		if (count($lines)) {
-			$footer = implode('<br />', $lines);
+			$footer = implode('', $lines);
 		}
 
 		return $footer;

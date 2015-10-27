@@ -5,37 +5,25 @@
 .readmore-link {background-position: 0 2px}
 	
 /* JComments common styles */
-#jc {clear: both;}
-#jc a:link, #jc a:visited, #jc a:hover {outline: none} 
 #jc .clear {clear: both; height: 1px; overflow: hidden}
 #jc .busy { display:none; margin: 3px auto; padding: 0; width: 16px; height: 16px; background: url(images/jc_busy.gif) no-repeat; }
 
-#jc h4 {color: #555;background-color: inherit;font-weight: bold;text-align: left;border-bottom: 1px solid #D2DADB;padding: 0 0 2px 0;margin-bottom: 10px}
-
 #jc p.message {color: #777;background-color: inherit; background-image: none; text-align: center;text-decoration: none;text-transform: none;text-indent: 0;padding: 5px 0 0 0;border-top: 1px solid #D2DADB}
 
-#comments {margin: 0;padding: 0;width: 100%;text-align: left;text-decoration: none;text-transform: none;text-indent: 0}
-#comments a {color: #849B9F;background-color: inherit;font-weight: normal;text-decoration: none}
-#comments a:active, #comments a:focus, #comments a:hover {color: #cc0000 !important; background-color: transparent !important;}
+#comments a {color: #849B9F;text-decoration: none}
+#comments a:active, #comments a:focus, #comments a:hover {color: #cc0000 !important;}
 #comments a[rel*=external], #comments a[rel*=external]:active, #comments a[rel*=external]:hover, #comments a[rel*=external]:focus {background: url(images/jc_link.gif) no-repeat center right;padding: 0 10px 0 0;margin: 0 2px;display: inline-block}
 	
 /* RSS and Refresh*/
-#comments .rss, #comments .refresh, #comments .subscribe {padding: 0 0 0 14px;margin: 0 2px;border: none;display: inline-block}
-#comments .rss {background: url(images/jc_rss.gif) no-repeat center left !important}
-#comments .refresh {background: url(images/jc_refresh.gif) no-repeat center left !important}
-#comments .subscribe {background: url(images/jc_subscribe.gif) no-repeat center left !important}
-#comments h4 .rss, #comments h4 .refresh {padding: 0 0 0 10px;margin: 0 0 0 5px;display: inline-block}
-
-/* List footer */
-#comments-list-footer {margin: 0 0 10px 20px !important}
+#comments .rss {color: orange;}
+#comments .refresh {color: green;}
+#comments .subscribe {color: deepskyblue;}
 
 /* Show/hide form */
 #comments-form-link .showform {margin: 5px 0 0 22px;padding: 0 0 5px 14px;background: url(images/jc_blog.gif) no-repeat 0 -28px;border: none;font-weight: bold;display: block}
 
 /* Comment */
-#comments .comment-box {margin: 0;padding: 0; color: #999}
-#comments .comment-avatar {float: left;margin: 0;padding: 0}
-#comments .avatar-indent {padding-left: 40px}
+#comments .comment-box {color: #999}
 
 #comments .comment-anchor {color: #777; text-decoration: none; border: none}
 #comments .comment-author, #comments .author-homepage, #comments .author-email {color: #3c452d;font: bold 1em Verdana, Arial, Sans-Serif;margin: 0;padding: 0}
@@ -43,10 +31,10 @@
 #comments .comment-title {color: #b01625;font: bold 1em Verdana, Arial, Sans-Serif;margin: 0;padding: 0}
 
 /* Avatar */
-#comments .comment-avatar img {width: 32px;border: none !important;}
+#comments .comment-avatar img {width: 64px;}
 
 /* Date and Time*/	
-#comments .comment-date {font-size: 10px;color: #999;margin: 0;padding: 0 0 0 12px;background: url(images/jc_date.gif) no-repeat center left}
+#comments .comment-date {font-size: 12px;}
 #comments .comment-body {color: #777;margin: 6px 0 0;padding:0 0 2px}
 
 /* Quote, Code and Hidden block styles */
@@ -59,7 +47,6 @@
 #comments .hidden {clear: both;display: block;margin: 5px 0}
 
 /* Quote and Reply to buttons panel */
-#comments .comments-buttons {height: 15px;float: right}
 
 #comments .email, #comments .emailactive {font: normal 1em Verdana, Arial, Sans-Serif; text-decoration: none; white-space: normal; margin: 0; padding: 0; line-height: 10px; cursor: pointer; border-bottom: 1px dotted #999}
 #comments .email {color: #444; background-color: inherit}
@@ -81,8 +68,7 @@
 #comments .toolbar-button-ban {background-position: 0 -80px !important}
 
 /* Comments list */
-#comments .comments-list {margin-left: 20px;height: 1%}
-#comments .even, #comments .odd {background-image: none;background-color: transparent;color: #3c452d;border: none; margin-left: 0;margin-bottom: 10px;padding: 0}
+#comments .comments-list .comments-list {margin-left: 20px; margin-right: 15px;}
 
 #comments-list .comments-inline-edit {padding: 5px; margin: 5px 0; color: inherit;background-color: #fff;border: 1px solid #ccc}
 
@@ -91,26 +77,19 @@ div.comments-policy {color: #777; text-align: left;text-decoration: none;text-tr
 div.comments-policy ol, div.comments-policy ul {margin: 0;padding: 5px 0 0 20px;}
 div.comments-policy ol li, div.comments-policy ul li {font: normal 1em Verdana, Arial, Sans-Serif; margin: 0;padding: 0;border: none;line-height:  1em;}
 
-#comments-form, #comments-form p, #comments-report-form, #comments-report-form p, #comments-form span, #comments-form .counter {text-align: left;text-decoration: none;text-transform: none;text-indent: 0}
 #comments-form p, #comments-report-form p, #comments-form span, #comments-form .counter {color: #777;font: normal 1em Verdana, Arial, Sans-Serif}
-#comments-form p, #comments-form #comments-form-buttons, #comments-form #comments-form-error, #comments-form #comments-form-captcha-holder {font: normal 1em Verdana, Arial, Sans-Serif;margin-left: 20px !important;margin-top: 10px;margin-bottom: 8px;overflow: hidden;padding: 0}
 
-#comments-inline-edit {border: 1px solid #ccc;margin: 5px 0 0 0;background: #fff}
+#comments-inline-edit {border: 1px solid #ccc;margin: 10px;padding: 10px;}
 #comments-inline-edit #comments-form p, #comments-inline-edit #comments-form #comments-form-buttons,
 #comments-inline-edit #comments-form-error {font: normal 1em Verdana, Arial, Sans-Serif;margin-left: 5px !important;margin-left: 5px;margin-top: 5px;margin-bottom: 2px;padding: 0}
 
 #comments-form img.smile {margin: 0 3px 3px 0;padding: 0;border: none;cursor: pointer;float:none}
 #comments-form img.captcha {padding: 0;margin: 0 0 3px 0;border: 1px solid #ccc}
 #comments-form span.captcha {padding: 0 0 0 12px; color: #777; background: url(images/jc_refreshg.gif) no-repeat 0 2px;cursor: pointer; display: inline-block}
-#comments-form label, #comments-report-form label {color: #777; background-color: inherit; line-height: 1.5em; padding: 0;margin: 0;vertical-align: middle; display: inline;}
-#comments-form input, #comments-report-form input, #comments-form textarea {color: #444;background-color: #fff;padding: 0 !important;margin: 0;border: 1px solid #ccc}
-#comments-form input {width: 170px;margin-bottom: 2px;height: 1.5em}
-#comments-form input.selected, #comments-form textarea.selected {color: #777;background-color: #ffffe0 !important;border: 1px solid #849B9F}
 #comments-form input.error, #comments-form textarea.error {border: 1px solid #f00;text-decoration:none;text-transform:none;background-color: #ffffe0}
 
 #comments-form input.checkbox {width: 16px; line-height: 1.5em; padding: 0; margin: 0; vertical-align: middle; border: none}
 #comments-form input.captcha {width: 116px; margin: 3px 0 5px 0}
-#comments-form textarea {max-width: 400px !important;width: 350px;margin:0;resize: none;}
 
 #comments-form-message {padding: 5px 5px 5px 25px;margin-right: 5px;display: block}
 .comments-form-message-error {background: #FFD86F url(images/jc_error.gif) no-repeat 4px 50%}
@@ -118,14 +97,11 @@ div.comments-policy ol li, div.comments-policy ul li {font: normal 1em Verdana, 
 
 #comments-form .counterpanel {height:13px;display:block;overflow:hidden;color: #ccc;padding: 0;margin:0;border:1px solid #ddd;border-top-width:0;max-width: 400px !important;width: 350px;background-color: #eee}
 
-#comments-form .grippie {height:13px;display:block;overflow:hidden;color: #ccc;padding: 0;margin:0;border:1px solid #ddd;border-top-width:0;max-width: 400px !important;width: 350px;cursor:s-resize;background: #eee url(images/jc_resize.gif) no-repeat right 2px}
+#comments-form .grippie {overflow:hidden;color: #ccc;border:1px solid #ddd;border-top-width:0;cursor:s-resize;background: #eee url(images/jc_resize.gif) no-repeat right 2px}
 #comments-form .grippie .counter {font-size: 10px;padding: 0; margin: 0}
 #comments-form .grippie span {display:block;float:left}
 #comments-form .grippie span span {display:inline;float:none}
-
-#comments-form .btn, #comments-report-form .btn {float: left; background: url(images/jc_btnl.gif) no-repeat; margin-right: 5px; padding: 0 !important;}
 #comments-form .btn div, #comments-report-form .btn div {margin:0 -1px 0 0; float: left;background: url(images/jc_btnr.gif) 100% 0 no-repeat; padding: 0 5px;}
-#comments-form .btn a, #comments-report-form .btn a {text-decoration: none; height: 22px;line-height: 22px;font-size: 12px;font-weight: bold;color: #777;padding: 0 5px;border: none}
 #comments-form .btn a:hover, #comments-form .btn a:focus, #comments-report-form .btn a:hover, #comments-report-form .btn a:focus {text-decoration: none; color: #0B55C4;background-color: transparent}
 #comments-form-smilespanel {display: none;cursor: pointer;padding: 2px;max-width: 200px;background-color: #fff;border: 1px solid #ccc;overflow: auto;left: 0;top: 0;position:absolute;z-index: 999999 !important;}
 
@@ -149,10 +125,10 @@ body #jc #nav-bottom, body #jc #nav-top {line-height: 19px !important;line-heigh
 
 /* Vote */
 #jc span.comments-vote {width: 6em;height: 15px;float: right}
-#jc span.comments-vote a{width: 15px;height: 14px;float: left;margin: 0 3px 0 0;display: block;background-repeat: no-repeat;background-image: url(images/jc_vote.gif);border: none !important; text-decoration: none}
+#jc span.comments-vote a{margin: 0 5px;}
 #jc span.comments-vote .busy{margin: 0; float: right; width: 16px}
-#jc .vote-good{background-position: 0 0}
-#jc .vote-poor, #jc a.vote-poor:hover{background-position: -15px 0}
+#jc .vote-good{color: green}
+#jc .vote-poor, #jc a.vote-poor:hover{color: red;}
 #jc span.vote-good,#jc span.vote-poor,#jc span.vote-none{margin: 0;float: right;font: bold 1em Verdana, Arial, Sans-Serif;line-height: 14px}
 #jc span.vote-good{color: #339900}
 #jc span.vote-poor{color: #CC0000}
@@ -183,6 +159,7 @@ body #jc #nav-bottom, body #jc #nav-top {line-height: 19px !important;line-heigh
 #jc span.bbcode img {width: 23px;height: 23px;float: left;margin: 0 2px 0 0}
 #jc .custombbcode {width: 23px;height: 23px;float: left;margin: 0 2px 0 0;display: block;text-decoration:none;cursor: pointer}
 
-/* Rounded comments */
-#jc .rbox {margin: 0;padding: 4px 8px;width:auto;line-height: 100%;overflow: hidden;background-color:#fff;border: 1px solid #ccc;border-radius:7px;-moz-border-radius:7px;-webkit-border-radius: 7px;}
-#jc .rbox div {text-align: left;margin: 0}
+.smile {margin: 3px;}
+
+/* Report */
+.comments-inline-report {padding: 10px;}

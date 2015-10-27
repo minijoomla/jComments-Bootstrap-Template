@@ -48,7 +48,9 @@ class jtt_tpl_form extends JoomlaTuneTemplate
 		$htmlFormAppend = $this->getVar('comments-form-html-append');
 
 ?>
-<h4><?php echo JText::_('FORM_HEADER'); ?></h4>
+<div class="panel panel-default">
+<div class="panel-heading"><?php echo JText::_('FORM_HEADER'); ?></div>
+<div class="panel-body">
 <?php
 		if ($this->getVar( 'comments-form-policy', 0) == 1) {
 ?>
@@ -66,62 +68,54 @@ class jtt_tpl_form extends JoomlaTuneTemplate
 		if ($this->getVar( 'comments-form-user-name', 1) == 1) {
 			$text = ($this->getVar('comments-form-user-name-required', 1) == 0) ? JText::_('FORM_NAME') : JText::_('FORM_NAME_REQUIRED');
 ?>
-<p>
-	<span>
-		<input id="comments-form-name" type="text" name="name" value="" maxlength="<?php echo $this->getVar('comment-name-maxlength');?>" size="22" tabindex="1" />
-		<label for="comments-form-name"><?php echo $text; ?></label>
-	</span>
-</p>
+<div class="form-group form-inline">
+	<input class="form-control" id="comments-form-name" type="text" name="name" maxlength="<?php echo $this->getVar('comment-name-maxlength');?>" size="22" tabindex="1" />
+	<label for="comments-form-name"><?php echo $text; ?></label>
+</div>
 <?php
 		}
 		if ($this->getVar( 'comments-form-user-email', 1) == 1) {
 			$text = ($this->getVar('comments-form-email-required', 1) == 0) ? JText::_('FORM_EMAIL') : JText::_('FORM_EMAIL_REQUIRED');
 ?>
-<p>
-	<span>
-		<input id="comments-form-email" type="text" name="email" value="" size="22" tabindex="2" />
-		<label for="comments-form-email"><?php echo $text; ?></label>
-	</span>
-</p>
+<div class="form-group form-inline">
+	<input dir="ltr" class="form-control" id="comments-form-email" type="text" name="email" size="22" tabindex="2" />
+	<label for="comments-form-email"><?php echo $text; ?></label>
+</div>
 <?php
 		}
 		if ($this->getVar('comments-form-user-homepage', 0) == 1) {
 			$text = ($this->getVar('comments-form-homepage-required', 1) == 0) ? JText::_('FORM_HOMEPAGE') : JText::_('FORM_HOMEPAGE_REQUIRED');
 ?>
-<p>
-	<span>
-		<input id="comments-form-homepage" type="text" name="homepage" value="" size="22" tabindex="3" />
-		<label for="comments-form-homepage"><?php echo $text; ?></label>
-	</span>
-</p>
+<div class="form-group form-inline">
+	<input dir="ltr" class="form-control" id="comments-form-homepage" type="text" name="homepage" size="22" tabindex="3" />
+	<label for="comments-form-homepage"><?php echo $text; ?></label>
+</div>
 <?php
 		}
 		if ($this->getVar('comments-form-title', 0) == 1) {
 			$text = ($this->getVar('comments-form-title-required', 1) == 0) ? JText::_('FORM_TITLE') : JText::_('FORM_TITLE_REQUIRED');
 ?>
-<p>
-	<span>
-		<input id="comments-form-title" type="text" name="title" value="" size="22" tabindex="4" />
-		<label for="comments-form-title"><?php echo $text; ?></label>
-	</span>
-</p>
+<div class="form-group form-inline">
+	<input class="form-control" id="comments-form-title" type="text" name="title" size="22" tabindex="4" />
+	<label for="comments-form-title"><?php echo $text; ?></label>
+</div>
 <?php
 		}
 ?>
-<p>
-	<span>
-		<textarea id="comments-form-comment" name="comment" cols="65" rows="8" tabindex="5"></textarea>
-	</span>
-</p>
+<div class="form-group">
+	<textarea class="form-control" id="comments-form-comment" name="comment" cols="65" rows="8" tabindex="5"></textarea>
+</div>
 <?php
 		if ($this->getVar('comments-form-subscribe', 0) == 1) {
 ?>
-<p>
-	<span>
-		<input class="checkbox" id="comments-form-subscribe" type="checkbox" name="subscribe" value="1" tabindex="5" />
-		<label for="comments-form-subscribe"><?php echo JText::_('FORM_SUBSCRIBE'); ?></label><br />
-	</span>
-</p>
+<div class="form-group">
+	<div class="checkbox">
+		<label for="comments-form-subscribe">
+			<input id="comments-form-subscribe" type="checkbox" name="subscribe" value="1" tabindex="5" />
+			<?php echo JText::_('FORM_SUBSCRIBE'); ?>
+		</label>
+	</div>
+</div>
 <?php
 		}
 
@@ -132,13 +126,11 @@ class jtt_tpl_form extends JoomlaTuneTemplate
 			} else {
 				$link = JCommentsFactory::getLink('captcha');
 ?>
-<p>
-	<span>
-		<img class="captcha" onclick="jcomments.clear('captcha');" id="comments-form-captcha-image" src="<?php echo $link; ?>" width="121" height="60" alt="<?php echo JText::_('FORM_CAPTCHA'); ?>" /><br />
-		<span class="captcha" onclick="jcomments.clear('captcha');"><?php echo JText::_('FORM_CAPTCHA_REFRESH'); ?></span><br />
-		<input class="captcha" id="comments-form-captcha" type="text" name="captcha_refid" value="" size="5" tabindex="6" /><br />
-	</span>
-</p>
+<div class="form-group form-inline">
+	<img class="captcha" onclick="jcomments.clear('captcha');" id="comments-form-captcha-image" src="<?php echo $link; ?>" width="121" height="60" alt="<?php echo JText::_('FORM_CAPTCHA'); ?>" />
+	<span class="captcha" onclick="jcomments.clear('captcha');"><?php echo JText::_('FORM_CAPTCHA_REFRESH'); ?></span>
+	<input dir="ltr" class="captcha" id="comments-form-captcha" type="text" name="captcha_refid" value="" size="5" tabindex="6" />
+</div>
 <?php
 			}
 		}
@@ -146,16 +138,17 @@ class jtt_tpl_form extends JoomlaTuneTemplate
 <?php
 		$this->getFormFields($htmlFormAppend);
 ?>
-<div id="comments-form-buttons">
-	<div class="btn" id="comments-form-send"><div><a href="#" tabindex="7" onclick="jcomments.saveComment();return false;" title="<?php echo JText::_('FORM_SEND_HINT'); ?>"><?php echo JText::_('FORM_SEND'); ?></a></div></div>
-	<div class="btn" id="comments-form-cancel" style="display:none;"><div><a href="#" tabindex="8" onclick="return false;" title="<?php echo JText::_('FORM_CANCEL'); ?>"><?php echo JText::_('FORM_CANCEL'); ?></a></div></div>
-	<div style="clear:both;"></div>
+<div id="comments-form-buttons" class="form-group">
+	<div  class="btn btn-default" id="comments-form-send"><a href="#" tabindex="7" onclick="jcomments.saveComment();return false;" title="<?php echo JText::_('FORM_SEND_HINT'); ?>"><?php echo JText::_('FORM_SEND'); ?></a></div>
+	<div  class="btn btn-link" id="comments-form-cancel" style="display:none;"><a href="#" tabindex="8" onclick="return false;" title="<?php echo JText::_('FORM_CANCEL'); ?>"><?php echo JText::_('FORM_CANCEL'); ?></a></div>
 </div>
 <div>
 	<input type="hidden" name="object_id" value="<?php echo $object_id; ?>" />
 	<input type="hidden" name="object_group" value="<?php echo $object_group; ?>" />
 </div>
 </form>
+</div>
+</div>
 <script type="text/javascript">
 <!--
 function JCommentsInitializeForm()
